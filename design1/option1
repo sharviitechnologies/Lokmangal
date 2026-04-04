@@ -1,1 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokmangal Group of Colleges</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0C1F3F;
+  --navy-mid:#152B52;
+  --navy-light:#1E3B6E;
+  --gold:#E8A020;
+  --gold-light:#F5BC4A;
+  --gold-pale:#FEF6E4;
+  --gold-border:#F0C060;
+  --sage:#3D7A5A;
+  --sage-light:#4E9970;
+  --sage-pale:#E8F5EE;
+  --cream:#FAFAF7;
+  --white:#FFFFFF;
+  --charcoal:#1A1A2E;
+  --body:#4A4A6A;
+  --muted:#8888AA;
+  --border:#E8E8F0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
 
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:70px;padding:0 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(12,31,63,0.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(232,160,32,0.2);
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.brand-seal{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),#C47A15);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:14px;color:var(--navy);letter-spacing:-.5px;
+  border:2px solid rgba(232,160,32,0.4);
+}
+.brand-name{color:#fff;font-size:15px;font-weight:600;line-height:1.25}
+.brand-name small{display:block;font-size:10px;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;margin-top:1px}
+.nav-menu{display:flex;gap:32px;list-style:none}
+.nav-menu a{color:rgba(255,255,255,.7);font-size:13.5px;text-decoration:none;font-weight:400;transition:color .2s;letter-spacing:.2px}
+.nav-menu a:hover{color:var(--gold-light)}
+.nav-apply{
+  background:var(--gold);color:var(--navy);
+  padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;
+  text-decoration:none;letter-spacing:.3px;transition:all .2s;
+  border:none;cursor:pointer;
+}
+.nav-apply:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding:100px 6% 80px;
+}
+.hero-decor-circle{
+  position:absolute;width:900px;height:900px;border-radius:50%;
+  border:1px solid rgba(232,160,32,0.07);
+  top:-300px;right:-250px;pointer-events:none;
+}
+.hero-decor-circle2{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  border:1px solid rgba(232,160,32,0.05);
+  top:-100px;right:-100px;pointer-events:none;
+}
+.hero-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,160,32,.12) 0%,transparent 70%);
+  top:-50px;right:5%;pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(61,122,90,.15) 0%,transparent 70%);
+  bottom:-100px;left:5%;pointer-events:none;
+}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);
+  border-radius:100px;padding:6px 16px;margin-bottom:26px;
+  color:var(--gold-light);font-size:11.5px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,5vw,68px);line-height:1.1;
+  color:#fff;margin-bottom:22px;
+}
+.hero h1 .italic{font-style:italic;color:var(--gold-light)}
+.hero-desc{color:rgba(255,255,255,.6);font-size:17px;line-height:1.75;max-width:500px;margin-bottom:38px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:var(--navy);
+  padding:14px 30px;border-radius:10px;font-weight:700;font-size:14px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;box-shadow:0 8px 28px rgba(232,160,32,.35);
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:#fff;
+  padding:14px 26px;border-radius:10px;font-size:14px;font-weight:500;
+  text-decoration:none;border:1px solid rgba(255,255,255,.2);
+  display:inline-flex;align-items:center;gap:8px;transition:all .2s;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+
+/* Hero right card */
+.hero-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;overflow:hidden;
+  backdrop-filter:blur(12px);
+}
+.hero-card-top{
+  height:280px;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,#0a1c3a 0%,#122b4e 40%,#0c2237 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-card-top::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 60% 30%,rgba(232,160,32,.2) 0%,transparent 60%),
+             radial-gradient(ellipse at 20% 80%,rgba(61,122,90,.25) 0%,transparent 50%);
+}
+.gh-wrap{position:relative;z-index:2;width:260px}
+.hero-card-bottom{
+  padding:22px 26px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.hcb-label{color:rgba(255,255,255,.9);font-size:15px;font-weight:600}
+.hcb-sub{color:rgba(255,255,255,.4);font-size:12px;margin-top:3px}
+.hcb-badge{
+  background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.35);
+  border-radius:8px;padding:7px 14px;color:var(--gold-light);font-size:11px;font-weight:600;
+}
+.float-stat{
+  position:absolute;z-index:10;
+  background:rgba(255,255,255,.06);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;
+}
+.fs-num{font-size:22px;font-weight:700;color:var(--gold-light)}
+.fs-lbl{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.fs1{bottom:70px;left:-30px}
+.fs2{top:20px;right:-30px}
+
+/* ── METRICS BAND ── */
+.metrics{background:#fff;border-top:3px solid var(--gold);border-bottom:1px solid var(--border);padding:52px 6%}
+.metrics-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{text-align:center;padding:0 20px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-ico{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--gold-pale);margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.metric-num{
+  font-family:'Playfair Display',serif;
+  font-size:44px;color:var(--navy);line-height:1;
+}
+.metric-num sup{font-size:20px;vertical-align:super}
+.metric-lbl{font-size:13px;color:var(--muted);margin-top:6px;font-weight:500}
+
+/* ── SECTION COMMONS ── */
+.wrap{max-width:1280px;margin:0 auto;padding:100px 6%}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--sage);font-size:11.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;
+}
+.sec-tag::before{content:'';width:24px;height:2px;background:var(--gold)}
+.sec-h{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,50px);color:var(--navy);line-height:1.15;
+}
+.sec-h em{font-style:italic;color:var(--sage)}
+
+/* ── COLLEGES ── */
+.colleges-bg{background:var(--cream)}
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+.col-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);
+  transition:transform .3s,box-shadow .3s;
+}
+.col-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(12,31,63,.12)}
+.col-cover{
+  height:210px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.c-agri{background:linear-gradient(140deg,#0e2d1a 0%,#1b5c32 50%,#0a2416 100%)}
+.c-pharma{background:linear-gradient(140deg,#0c1f3f 0%,#1a3a6e 50%,#0a1830 100%)}
+.c-bio{background:linear-gradient(140deg,#2a1a0c 0%,#5c3a18 50%,#3a2208 100%)}
+.c-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(255,255,255,.06) 0%,transparent 60%)}
+.c-icon{
+  width:80px;height:80px;border-radius:20px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);position:relative;z-index:2;
+}
+.c-ribbon{
+  position:absolute;top:16px;right:16px;z-index:3;
+  background:rgba(232,160,32,.2);border:1px solid rgba(232,160,32,.4);
+  border-radius:6px;padding:4px 10px;color:var(--gold-light);font-size:11px;font-weight:600;
+}
+.c-body{padding:26px 28px 24px}
+.c-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.c-desc{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:20px}
+.c-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{background:var(--gold-pale);color:#7A5010;border-radius:6px;padding:4px 11px;font-size:11px;font-weight:600}
+.c-link{
+  color:var(--navy);font-size:13px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1.5px solid var(--gold);padding-bottom:1px;transition:color .2s;
+}
+.c-link:hover{color:var(--sage)}
+
+/* ── LIVE STATS ── */
+.live-sec{background:var(--navy);padding:100px 6%;position:relative;overflow:hidden}
+.live-sec::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 85% 50%,rgba(232,160,32,.1) 0%,transparent 55%),
+             radial-gradient(ellipse at 15% 80%,rgba(61,122,90,.1) 0%,transparent 45%);
+}
+.live-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.live-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.live-sec .sec-tag{color:var(--gold-light)}
+.live-sec .sec-tag::before{background:var(--gold-light)}
+.live-sec .sec-h{color:#fff}
+.live-sec .sec-h em{color:var(--gold-light)}
+.live-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.25);
+  border-radius:100px;padding:8px 18px;color:var(--gold-light);font-size:12px;font-weight:500;
+}
+.green-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 1.5s infinite}
+.s-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.s-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:30px 26px;transition:all .25s;
+}
+.s-card:hover{background:rgba(232,160,32,.07);border-color:rgba(232,160,32,.2)}
+.s-ico{width:50px;height:50px;border-radius:14px;margin-bottom:22px;display:flex;align-items:center;justify-content:center}
+.ico-g{background:rgba(232,160,32,.18)}
+.ico-s{background:rgba(61,122,90,.25)}
+.ico-b{background:rgba(55,138,221,.18)}
+.ico-a{background:rgba(239,159,39,.18)}
+.s-num{font-family:'Playfair Display',serif;font-size:40px;color:#fff;line-height:1;margin-bottom:8px}
+.s-suf{font-size:22px;color:var(--gold-light)}
+.s-lbl{color:rgba(255,255,255,.5);font-size:13px;line-height:1.55}
+.s-trend{
+  display:inline-flex;align-items:center;gap:5px;margin-top:14px;
+  background:rgba(74,222,128,.12);border-radius:6px;padding:3px 9px;
+  color:#4ade80;font-size:11px;font-weight:500;
+}
+
+/* ── ALUMNI ── */
+.alumni-sec{background:#fff;padding:100px 6%}
+.alumni-inner{max-width:1280px;margin:0 auto}
+.alumni-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.alumni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.alumni-card{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:20px;padding:30px 28px;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.alumni-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(12,31,63,.1)}
+.quote-mark{
+  font-family:'Playfair Display',serif;
+  font-size:72px;line-height:.7;color:var(--gold);
+  position:absolute;top:20px;right:26px;opacity:.4;
+  pointer-events:none;
+}
+.alumni-text{
+  font-size:15px;color:var(--body);line-height:1.75;
+  font-style:italic;margin-bottom:28px;position:relative;z-index:2;
+}
+.alumni-meta{display:flex;align-items:center;gap:14px}
+.alumni-avatar{
+  width:50px;height:50px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;color:#fff;
+}
+.av-navy{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
+.av-sage{background:linear-gradient(135deg,var(--sage),var(--sage-light))}
+.av-gold{background:linear-gradient(135deg,#C47A15,var(--gold))}
+.alumni-name{font-size:15px;font-weight:700;color:var(--navy)}
+.alumni-role{font-size:12px;color:var(--muted);margin-top:2px}
+.alumni-batch{
+  margin-left:auto;background:var(--gold-pale);
+  border-radius:6px;padding:4px 10px;
+  color:#7A5010;font-size:11px;font-weight:600;white-space:nowrap;
+}
+.stars{color:var(--gold);font-size:14px;margin-bottom:14px;letter-spacing:2px}
+
+/* ── GALLERY ── */
+.gallery-sec{background:var(--cream);padding:100px 6%}
+.gallery-inner{max-width:1280px;margin:0 auto}
+.gallery-head{margin-bottom:48px}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:220px 220px;
+  gap:16px;
+}
+.g-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;background:var(--navy-mid)}
+.g1{grid-column:1/5;grid-row:1/3}
+.g2{grid-column:5/8;grid-row:1/2}
+.g3{grid-column:8/13;grid-row:1/2}
+.g4{grid-column:5/9;grid-row:2/3}
+.g5{grid-column:9/13;grid-row:2/3}
+.g-cover{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;transition:transform .4s;
+}
+.g-item:hover .g-cover{transform:scale(1.04)}
+.gb1{background:linear-gradient(140deg,#0a2818 0%,#1a5c38 60%,#0d3520 100%)}
+.gb2{background:linear-gradient(140deg,#0c1f3f 0%,#1e3b6e 60%,#0a1830 100%)}
+.gb3{background:linear-gradient(140deg,#2a1a0c 0%,#5c3a18 60%,#3a2208 100%)}
+.gb4{background:linear-gradient(140deg,#0c2230 0%,#1a4a5c 60%,#082018 100%)}
+.gb5{background:linear-gradient(140deg,#1a0a2a 0%,#3a1a5c 60%,#240a38 100%)}
+.g-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(12,31,63,.8) 0%,transparent 50%);
+  display:flex;align-items:flex-end;padding:20px;
+  opacity:0;transition:opacity .3s;
+}
+.g-item:hover .g-overlay{opacity:1}
+.g-caption{color:#fff;font-size:14px;font-weight:600;line-height:1.3}
+.g-cap-sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:3px;font-weight:400}
+/* Gallery SVG illustrations */
+.gallery-icon{opacity:.7}
+
+/* ── RECENT UPDATES ── */
+.updates-sec{background:#fff;padding:100px 6%}
+.updates-inner{max-width:1280px;margin:0 auto}
+.updates-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.updates-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:30px}
+
+/* Featured update */
+.update-featured{
+  background:var(--navy);border-radius:20px;overflow:hidden;
+  cursor:pointer;transition:transform .3s;
+}
+.update-featured:hover{transform:translateY(-5px)}
+.uf-cover{
+  height:240px;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,#0a2238 0%,#1a3c5a 50%,#0c1e30 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.uf-cover::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 40%,rgba(232,160,32,.2) 0%,transparent 60%);
+}
+.uf-tag{
+  position:absolute;top:20px;left:20px;z-index:3;
+  background:var(--gold);color:var(--navy);
+  border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:.5px;
+}
+.uf-body{padding:28px 30px 30px}
+.uf-date{color:var(--gold-light);font-size:12px;font-weight:600;letter-spacing:.8px;margin-bottom:10px;text-transform:uppercase}
+.uf-title{font-family:'Playfair Display',serif;font-size:24px;color:#fff;line-height:1.3;margin-bottom:14px}
+.uf-desc{color:rgba(255,255,255,.55);font-size:14px;line-height:1.7;margin-bottom:22px}
+.uf-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold-light);font-size:13px;font-weight:600;text-decoration:none;
+  border-bottom:1px solid rgba(232,160,32,.4);padding-bottom:2px;transition:color .2s;
+}
+.uf-link:hover{color:#fff}
+
+/* Update list */
+.update-list{display:flex;flex-direction:column;gap:14px}
+.u-item{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:14px;padding:20px 22px;cursor:pointer;
+  transition:all .25s;display:flex;gap:16px;align-items:flex-start;
+}
+.u-item:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateX(4px)}
+.u-date-block{
+  min-width:50px;text-align:center;flex-shrink:0;
+  background:#fff;border:1px solid var(--border);
+  border-radius:10px;padding:8px 6px;
+}
+.u-day{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);line-height:1}
+.u-month{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.u-content{}
+.u-tag{
+  display:inline-block;background:var(--sage-pale);color:var(--sage);
+  border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;
+}
+.u-title{font-size:14px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:5px}
+.u-blurb{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* ── PROGRAMS ── */
+.prog-sec{background:var(--cream);padding:100px 6%}
+.prog-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
+.prog-list{margin-top:40px;display:flex;flex-direction:column;gap:14px}
+.p-item{
+  background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:18px 20px;display:flex;gap:14px;align-items:center;
+  cursor:pointer;transition:all .2s;
+}
+.p-item.active,.p-item:hover{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,160,32,.1)}
+.p-ico{width:42px;height:42px;border-radius:10px;background:var(--gold-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.p-name{font-size:15px;font-weight:600;color:var(--navy)}
+.p-dur{font-size:12px;color:var(--muted);margin-top:2px}
+.p-arr{
+  margin-left:auto;width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--muted);flex-shrink:0;transition:all .2s;
+}
+.p-item:hover .p-arr,.p-item.active .p-arr{background:var(--navy);color:#fff;border-color:var(--navy)}
+.prog-vis{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pv{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.pv-top{
+  height:150px;display:flex;align-items:center;justify-content:center;
+}
+.pv-b1{background:linear-gradient(135deg,#0a2818,#1a5c38)}
+.pv-b2{background:linear-gradient(135deg,#0c1f3f,#1e3b6e)}
+.pv-b3{background:linear-gradient(135deg,#2a1a0c,#5c3a18)}
+.pv-b4{background:linear-gradient(135deg,#1a0a2a,#3a1a5c)}
+.pv-info{padding:16px 18px}
+.pv-ttl{font-size:14px;font-weight:600;color:var(--navy)}
+.pv-sub{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* ── FOOTER ── */
+footer{background:var(--charcoal);padding:70px 6% 40px;border-top:3px solid var(--gold)}
+.foot-inner{max-width:1280px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:56px}
+.foot-brand-p{color:rgba(255,255,255,.45);font-size:14px;line-height:1.75;max-width:270px;margin-top:16px}
+.foot-col h5{color:rgba(255,255,255,.9);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:10px}
+.foot-col a{color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--gold-light)}
+.foot-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.foot-bot p{color:rgba(255,255,255,.3);font-size:13px}
+.socials{display:flex;gap:10px}
+.soc{
+  width:36px;height:36px;border-radius:8px;
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;
+}
+.soc:hover{border-color:var(--gold);background:rgba(232,160,32,.1)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero-inner,.prog-inner,.updates-grid{grid-template-columns:1fr;gap:48px}
+  .col-grid{grid-template-columns:1fr}
+  .alumni-grid{grid-template-columns:1fr}
+  .s-grid{grid-template-columns:1fr 1fr}
+  .metric{border-right:none;border-bottom:1px solid var(--border);padding-bottom:28px}
+  .metrics-inner{grid-template-columns:1fr 1fr;gap:28px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g1,.g2,.g3,.g4,.g5{grid-column:auto;grid-row:auto}
+  .foot-top{grid-template-columns:1fr 1fr;gap:36px}
+  .nav-menu{display:none}
+  .fs1,.fs2{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="brand-seal">LG</div>
+    <div class="brand-name">Lokmangal Group <small>of Colleges, Solapur</small></div>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="#">Colleges</a></li>
+    <li><a href="#">Programmes</a></li>
+    <li><a href="#">Research</a></li>
+    <li><a href="#">Campus</a></li>
+    <li><a href="#">Admissions</a></li>
+  </ul>
+  <a href="#" class="nav-apply">Apply 2025 →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-decor-circle"></div><div class="hero-decor-circle2"></div>
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><span class="live-dot"></span>Est. 2001 · NAAC A+ Accredited</div>
+      <h1>Where <span class="italic">Roots</span><br>Meet the <span class="italic">Future</span></h1>
+      <p class="hero-desc">Advancing agriculture, biotechnology and pharmacy through world-class research, smart infrastructure and a culture of entrepreneurial excellence.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-gold">Explore Programmes <span>→</span></a>
+        <a href="#" class="btn-outline">▶ &nbsp;Virtual Campus Tour</a>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <svg class="gh-wrap" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ground -->
+            <rect x="10" y="172" width="240" height="18" rx="4" fill="rgba(61,122,90,0.25)"/>
+            <!-- Greenhouse structure -->
+            <polygon points="130,28 250,105 250,170 10,170 10,105" fill="rgba(232,160,32,0.06)" stroke="rgba(232,160,32,0.45)" stroke-width="1.5"/>
+            <!-- Roof lines -->
+            <line x1="130" y1="28" x2="250" y2="105" stroke="rgba(232,160,32,0.7)" stroke-width="2"/>
+            <line x1="130" y1="28" x2="10" y2="105" stroke="rgba(232,160,32,0.7)" stroke-width="2"/>
+            <!-- Panel divisions -->
+            <line x1="70" y1="67" x2="70" y2="170" stroke="rgba(232,160,32,0.2)" stroke-width="1"/>
+            <line x1="130" y1="28" x2="130" y2="170" stroke="rgba(232,160,32,0.2)" stroke-width="1"/>
+            <line x1="190" y1="67" x2="190" y2="170" stroke="rgba(232,160,32,0.2)" stroke-width="1"/>
+            <line x1="10" y1="128" x2="250" y2="128" stroke="rgba(232,160,32,0.15)" stroke-width="1"/>
+            <line x1="10" y1="105" x2="250" y2="105" stroke="rgba(232,160,32,0.15)" stroke-width="1"/>
+            <!-- Door -->
+            <rect x="111" y="132" width="38" height="38" rx="2" fill="rgba(232,160,32,0.12)" stroke="rgba(232,160,32,0.45)" stroke-width="1.5"/>
+            <line x1="130" y1="132" x2="130" y2="170" stroke="rgba(232,160,32,0.45)" stroke-width="1"/>
+            <!-- Plants -->
+            <line x1="50" y1="170" x2="50" y2="143" stroke="#3D7A5A" stroke-width="2"/>
+            <ellipse cx="41" cy="138" rx="11" ry="6" fill="rgba(61,122,90,0.7)" transform="rotate(-20 41 138)"/>
+            <ellipse cx="59" cy="140" rx="11" ry="6" fill="rgba(61,122,90,0.8)" transform="rotate(20 59 140)"/>
+            <ellipse cx="50" cy="133" rx="9" ry="6" fill="rgba(78,153,112,0.9)"/>
+            <line x1="95" y1="170" x2="95" y2="136" stroke="#3D7A5A" stroke-width="2"/>
+            <ellipse cx="85" cy="131" rx="13" ry="7" fill="rgba(61,122,90,0.7)" transform="rotate(-18 85 131)"/>
+            <ellipse cx="105" cy="133" rx="13" ry="7" fill="rgba(61,122,90,0.8)" transform="rotate(18 105 133)"/>
+            <ellipse cx="95" cy="126" rx="10" ry="7" fill="rgba(78,153,112,0.9)"/>
+            <line x1="165" y1="170" x2="165" y2="120" stroke="#3D7A5A" stroke-width="2"/>
+            <ellipse cx="153" cy="115" rx="14" ry="8" fill="rgba(61,122,90,0.7)" transform="rotate(-20 153 115)"/>
+            <ellipse cx="177" cy="117" rx="14" ry="8" fill="rgba(61,122,90,0.8)" transform="rotate(20 177 117)"/>
+            <ellipse cx="165" cy="110" rx="11" ry="7" fill="rgba(78,153,112,0.9)"/>
+            <line x1="215" y1="170" x2="215" y2="142" stroke="#3D7A5A" stroke-width="2"/>
+            <ellipse cx="205" cy="137" rx="11" ry="6" fill="rgba(61,122,90,0.7)" transform="rotate(-20 205 137)"/>
+            <ellipse cx="225" cy="139" rx="11" ry="6" fill="rgba(61,122,90,0.8)" transform="rotate(20 225 139)"/>
+            <ellipse cx="215" cy="132" rx="9" ry="6" fill="rgba(78,153,112,0.9)"/>
+            <!-- Sensors -->
+            <circle cx="50" cy="110" r="5" fill="rgba(232,160,32,0.9)"/>
+            <circle cx="50" cy="110" r="10" fill="rgba(232,160,32,0.18)"/>
+            <circle cx="210" cy="106" r="5" fill="rgba(232,160,32,0.9)"/>
+            <circle cx="210" cy="106" r="10" fill="rgba(232,160,32,0.18)"/>
+            <path d="M60,110 Q130,80 200,106" stroke="rgba(232,160,32,0.35)" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- Data tag -->
+            <rect x="100" y="74" width="60" height="20" rx="4" fill="rgba(12,31,63,0.85)" stroke="rgba(232,160,32,0.5)" stroke-width="1"/>
+            <text x="130" y="88" text-anchor="middle" fill="#F5BC4A" font-size="8.5" font-family="Plus Jakarta Sans,sans-serif" font-weight="600">HUM 72% · 24.5°C</text>
+          </svg>
+        </div>
+        <div class="hero-card-bottom">
+          <div><div class="hcb-label">Smart Glasshouse Lab</div><div class="hcb-sub">AI-monitored cultivation</div></div>
+          <div class="hcb-badge">● Live Data</div>
+        </div>
+      </div>
+      <div class="float-stat fs1"><div class="fs-num">98%</div><div class="fs-lbl">Placement Rate</div></div>
+      <div class="float-stat fs2"><div class="fs-num">5K+</div><div class="fs-lbl">Alumni Network</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric">
+      <div class="metric-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="metric-num">12<sup>K+</sup></div><div class="metric-lbl">Students Enrolled</div>
+    </div>
+    <div class="metric">
+      <div class="metric-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <div class="metric-num">200<sup>+</sup></div><div class="metric-lbl">Expert Faculty</div>
+    </div>
+    <div class="metric">
+      <div class="metric-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <div class="metric-num">18<sup>+</sup></div><div class="metric-lbl">Research Labs</div>
+    </div>
+    <div class="metric">
+      <div class="metric-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <div class="metric-num">95<sup>%</sup></div><div class="metric-lbl">Placement Record</div>
+    </div>
+  </div>
+</div>
+
+<!-- COLLEGES -->
+<div class="colleges-bg">
+  <div class="wrap">
+    <div class="sec-tag">Our Schools</div>
+    <h2 class="sec-h">Three Pillars of <em>Tomorrow's</em> Education</h2>
+    <div class="col-grid">
+      <div class="col-card reveal">
+        <div class="col-cover c-agri">
+          <div class="c-overlay"></div>
+          <div class="c-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"><path d="M12 22V12M12 12C12 12 7 10 4 6c4 0 8 2 8 6zM12 12c0 0 5-2 8-6-4 0-8 2-8 6z"/><path d="M5 20c2-2 4-3 7-3"/></svg></div>
+          <div class="c-ribbon">ICAR Approved</div>
+        </div>
+        <div class="c-body">
+          <div class="c-title">College of Agriculture</div>
+          <p class="c-desc">Modern agronomy, crop science and precision farming with smart-farm infrastructure and tissue culture laboratories.</p>
+          <div class="c-chips"><span class="chip">B.Sc. Agriculture</span><span class="chip">M.Sc. Agronomy</span><span class="chip">Ph.D.</span></div>
+          <a href="#" class="c-link">Explore College →</a>
+        </div>
+      </div>
+      <div class="col-card reveal">
+        <div class="col-cover c-pharma">
+          <div class="c-overlay"></div>
+          <div class="c-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg></div>
+          <div class="c-ribbon">PCI Approved</div>
+        </div>
+        <div class="c-body">
+          <div class="c-title">College of Pharmacy</div>
+          <p class="c-desc">Pharmaceutical sciences with cutting-edge drug research facilities, training the next generation of pharmacists and biomedical researchers.</p>
+          <div class="c-chips"><span class="chip">D. Pharm</span><span class="chip">B. Pharm</span><span class="chip">M. Pharm</span></div>
+          <a href="#" class="c-link">Explore College →</a>
+        </div>
+      </div>
+      <div class="col-card reveal">
+        <div class="col-cover c-bio">
+          <div class="c-overlay"></div>
+          <div class="c-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"><path d="M8 3v4m8-4v4M3 8h18M5 21h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2z"/></svg></div>
+          <div class="c-ribbon">UGC Listed</div>
+        </div>
+        <div class="c-body">
+          <div class="c-title">Agri-Biotechnology</div>
+          <p class="c-desc">Genomics, fermentation technology, bioinformatics and molecular biology — bridging agriculture and life sciences at the frontier.</p>
+          <div class="c-chips"><span class="chip">B.Sc. Biotech</span><span class="chip">M.Sc. Genomics</span><span class="chip">MBA Agri-Biz</span></div>
+          <a href="#" class="c-link">Explore College →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIVE CAMPUS STATS -->
+<section class="live-sec">
+  <div class="live-inner">
+    <div class="live-top">
+      <div><div class="sec-tag">Campus Intelligence</div><h2 class="sec-h">Live Campus <em>Overview</em></h2></div>
+      <div class="live-pill"><span class="green-dot"></span>Updating in real-time</div>
+    </div>
+    <div class="s-grid">
+      <div class="s-card reveal">
+        <div class="s-ico ico-g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="s-num">12<span class="s-suf">K</span></div>
+        <div class="s-lbl">Active students<br>across all programmes</div>
+        <div class="s-trend">↑ 8.2% this year</div>
+      </div>
+      <div class="s-card reveal">
+        <div class="s-ico ico-s"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sage-light)" stroke-width="2"><path d="M12 22V12M12 12C12 12 7 10 4 6c4 0 8 2 8 6z"/></svg></div>
+        <div class="s-num">48<span class="s-suf">ac</span></div>
+        <div class="s-lbl">Green campus area<br>with smart farming zones</div>
+        <div class="s-trend">✓ Certified Eco Campus</div>
+      </div>
+      <div class="s-card reveal">
+        <div class="s-ico ico-b"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="s-num">85<span class="s-suf">+</span></div>
+        <div class="s-lbl">Industry partners<br>for internships &amp; placements</div>
+        <div class="s-trend">↑ 12 new this year</div>
+      </div>
+      <div class="s-card reveal">
+        <div class="s-ico ico-a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EF9F27" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div class="s-num">300<span class="s-suf">+</span></div>
+        <div class="s-lbl">Research publications<br>in peer-reviewed journals</div>
+        <div class="s-trend">↑ 23% growth rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUMNI TESTIMONIALS -->
+<section class="alumni-sec">
+  <div class="alumni-inner">
+    <div class="alumni-head">
+      <div><div class="sec-tag">Success Stories</div><h2 class="sec-h">What Our <em>Alumni</em> Say</h2></div>
+      <a href="#" class="c-link" style="white-space:nowrap">View All Alumni →</a>
+    </div>
+    <div class="alumni-grid">
+      <!-- Card 1 -->
+      <div class="alumni-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="alumni-text">"Lokmangal gave me not just a degree but a mindset. The smart glasshouse labs and industry exposure at the Agriculture college turned me into a confident agri-entrepreneur. My startup now serves 300+ farmers."</p>
+        <div class="alumni-meta">
+          <div class="alumni-avatar av-navy">RK</div>
+          <div>
+            <div class="alumni-name">Rahul Kulkarni</div>
+            <div class="alumni-role">Founder, GreenRoots Agri-Tech · Pune</div>
+          </div>
+          <div class="alumni-batch">B.Sc. Agri '19</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="alumni-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="alumni-text">"The M. Pharm curriculum here is deeply research-oriented. Our professors pushed us to question and innovate. I got placed in a top Pune pharma company within a month of graduation — I owe it to Lokmangal."</p>
+        <div class="alumni-meta">
+          <div class="alumni-avatar av-sage">PS</div>
+          <div>
+            <div class="alumni-name">Priya Sawant</div>
+            <div class="alumni-role">Senior Researcher, Serum Institute · Pune</div>
+          </div>
+          <div class="alumni-batch">M. Pharm '21</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="alumni-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="alumni-text">"The Biotechnology programme at Lokmangal exposed me to genomics and fermentation technology from year one. The faculty here are world-class. I now lead a bio-research team at a global MNC."</p>
+        <div class="alumni-meta">
+          <div class="alumni-avatar av-gold">AM</div>
+          <div>
+            <div class="alumni-name">Aditya More</div>
+            <div class="alumni-role">Research Lead, Syngenta India · Hyderabad</div>
+          </div>
+          <div class="alumni-batch">M.Sc. Biotech '20</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-sec">
+  <div class="gallery-inner">
+    <div class="gallery-head">
+      <div class="sec-tag">Campus Life</div>
+      <h2 class="sec-h">Life Inside <em>Lokmangal</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <!-- Large left -->
+      <div class="g-item g1 reveal">
+        <div class="g-cover gb1">
+          <svg width="90" height="90" viewBox="0 0 90 90" class="gallery-icon" fill="none">
+            <rect x="10" y="50" width="70" height="30" rx="4" fill="rgba(61,122,90,0.3)" stroke="rgba(61,122,90,0.6)" stroke-width="1.5"/>
+            <polygon points="45,12 80,50 10,50" fill="rgba(61,122,90,0.2)" stroke="rgba(232,160,32,0.7)" stroke-width="1.5"/>
+            <circle cx="45" cy="62" r="8" fill="rgba(232,160,32,0.3)" stroke="rgba(232,160,32,0.6)" stroke-width="1.5"/>
+            <line x1="45" y1="30" x2="45" y2="54" stroke="rgba(61,122,90,0.5)" stroke-width="1"/>
+            <line x1="27" y1="50" x2="63" y2="50" stroke="rgba(61,122,90,0.4)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="g-overlay">
+          <div><div class="g-caption">Smart Glasshouse & Research Farm</div><div class="g-cap-sub">48-acre green campus</div></div>
+        </div>
+      </div>
+      <!-- Top middle -->
+      <div class="g-item g2 reveal">
+        <div class="g-cover gb2">
+          <svg width="70" height="70" viewBox="0 0 70 70" class="gallery-icon" fill="none">
+            <rect x="8" y="20" width="54" height="38" rx="5" fill="rgba(30,59,110,0.4)" stroke="rgba(55,138,221,0.6)" stroke-width="1.5"/>
+            <line x1="8" y1="32" x2="62" y2="32" stroke="rgba(55,138,221,0.4)" stroke-width="1"/>
+            <rect x="20" y="38" width="12" height="12" rx="2" fill="rgba(55,138,221,0.3)" stroke="rgba(55,138,221,0.5)" stroke-width="1"/>
+            <rect x="38" y="38" width="12" height="12" rx="2" fill="rgba(55,138,221,0.3)" stroke="rgba(55,138,221,0.5)" stroke-width="1"/>
+            <circle cx="35" cy="15" r="6" fill="rgba(232,160,32,0.25)" stroke="rgba(232,160,32,0.6)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="g-overlay">
+          <div><div class="g-caption">Modern Lecture Halls</div><div class="g-cap-sub">Smart-board enabled classrooms</div></div>
+        </div>
+      </div>
+      <!-- Top right -->
+      <div class="g-item g3 reveal">
+        <div class="g-cover gb3">
+          <svg width="70" height="70" viewBox="0 0 70 70" class="gallery-icon" fill="none">
+            <circle cx="35" cy="35" r="22" fill="rgba(92,58,24,0.3)" stroke="rgba(232,160,32,0.5)" stroke-width="1.5"/>
+            <circle cx="35" cy="35" r="12" fill="rgba(92,58,24,0.4)" stroke="rgba(232,160,32,0.7)" stroke-width="1.5"/>
+            <path d="M35 20 L35 50M20 35 L50 35" stroke="rgba(232,160,32,0.5)" stroke-width="1"/>
+            <path d="M25 25 L45 45M45 25 L25 45" stroke="rgba(232,160,32,0.3)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="g-overlay">
+          <div><div class="g-caption">Pharma Research Laboratory</div><div class="g-cap-sub">Advanced drug formulation</div></div>
+        </div>
+      </div>
+      <!-- Bottom middle-left -->
+      <div class="g-item g4 reveal">
+        <div class="g-cover gb4">
+          <svg width="70" height="70" viewBox="0 0 70 70" class="gallery-icon" fill="none">
+            <rect x="12" y="28" width="46" height="32" rx="4" fill="rgba(26,74,92,0.4)" stroke="rgba(10,191,163,0.5)" stroke-width="1.5"/>
+            <path d="M12 40 L30 30 L42 38 L55 28" stroke="rgba(10,191,163,0.7)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="30" cy="30" r="4" fill="rgba(10,191,163,0.4)" stroke="rgba(10,191,163,0.7)" stroke-width="1.5"/>
+            <circle cx="42" cy="38" r="4" fill="rgba(10,191,163,0.4)" stroke="rgba(10,191,163,0.7)" stroke-width="1.5"/>
+            <rect x="18" y="20" width="34" height="8" rx="2" fill="rgba(26,74,92,0.5)" stroke="rgba(10,191,163,0.4)" stroke-width="1"/>
+            <text x="35" y="27" text-anchor="middle" fill="rgba(10,191,163,0.8)" font-size="5" font-family="monospace">GENOMICS LAB</text>
+          </svg>
+        </div>
+        <div class="g-overlay">
+          <div><div class="g-caption">Genomics & Biotech Centre</div><div class="g-cap-sub">DNA sequencing facility</div></div>
+        </div>
+      </div>
+      <!-- Bottom right -->
+      <div class="g-item g5 reveal">
+        <div class="g-cover gb5">
+          <svg width="70" height="70" viewBox="0 0 70 70" class="gallery-icon" fill="none">
+            <rect x="10" y="15" width="50" height="40" rx="5" fill="rgba(58,26,92,0.4)" stroke="rgba(200,100,255,0.4)" stroke-width="1.5"/>
+            <path d="M22 42 L30 28 L38 36 L46 22 L55 35" stroke="rgba(232,160,32,0.8)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="22" cy="42" r="3" fill="rgba(232,160,32,0.5)"/>
+            <circle cx="46" cy="22" r="3" fill="rgba(232,160,32,0.5)"/>
+            <text x="35" y="57" text-anchor="middle" fill="rgba(232,160,32,0.6)" font-size="5" font-family="monospace">STARTUP HUB</text>
+          </svg>
+        </div>
+        <div class="g-overlay">
+          <div><div class="g-caption">Entrepreneurship & Incubation Hub</div><div class="g-cap-sub">40+ active agri-startups</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT UPDATES -->
+<section class="updates-sec">
+  <div class="updates-inner">
+    <div class="updates-top">
+      <div><div class="sec-tag">Latest News</div><h2 class="sec-h">Recent <em>Updates</em></h2></div>
+      <a href="#" class="c-link" style="white-space:nowrap">All Updates →</a>
+    </div>
+    <div class="updates-grid">
+      <!-- Featured -->
+      <div class="update-featured reveal">
+        <div class="uf-cover">
+          <div class="uf-tag">📢 Admissions Open</div>
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" style="position:relative;z-index:2;opacity:.7">
+            <circle cx="50" cy="50" r="38" fill="rgba(232,160,32,0.1)" stroke="rgba(232,160,32,0.4)" stroke-width="1.5"/>
+            <path d="M50 20 L50 50 L70 70" stroke="rgba(232,160,32,0.8)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="6" fill="rgba(232,160,32,0.6)" stroke="rgba(232,160,32,1)" stroke-width="2"/>
+            <line x1="50" y1="14" x2="50" y2="20" stroke="rgba(232,160,32,0.6)" stroke-width="2"/>
+            <line x1="86" y1="50" x2="80" y2="50" stroke="rgba(232,160,32,0.6)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="uf-body">
+          <div class="uf-date">March 28, 2025</div>
+          <div class="uf-title">Admissions Open for 2025–26 Academic Year Across All Programmes</div>
+          <p class="uf-desc">Lokmangal Group of Colleges has officially opened applications for B.Sc. Agriculture, B. Pharm, M. Pharm, M.Sc. Biotechnology and MBA Agri-Business. Apply before the deadline to secure your seat.</p>
+          <a href="#" class="uf-link">Read Full Notice →</a>
+        </div>
+      </div>
+
+      <!-- List -->
+      <div class="update-list">
+        <div class="u-item reveal">
+          <div class="u-date-block"><div class="u-day">22</div><div class="u-month">Mar</div></div>
+          <div class="u-content">
+            <div class="u-tag">Research</div>
+            <div class="u-title">National Conference on Agri-Genomics held on campus</div>
+            <div class="u-blurb">Faculty and PhD scholars presented 14 papers to delegates from IIT and ICAR.</div>
+          </div>
+        </div>
+        <div class="u-item reveal">
+          <div class="u-date-block"><div class="u-day">15</div><div class="u-month">Mar</div></div>
+          <div class="u-content">
+            <div class="u-tag">Placement</div>
+            <div class="u-title">Campus drive: Serum Institute, Mahindra Agri Solutions visit</div>
+            <div class="u-blurb">43 students received on-the-spot offers across pharmacy and agri-biotech roles.</div>
+          </div>
+        </div>
+        <div class="u-item reveal">
+          <div class="u-date-block"><div class="u-day">08</div><div class="u-month">Mar</div></div>
+          <div class="u-content">
+            <div class="u-tag">Award</div>
+            <div class="u-title">Lokmangal wins Best Agricultural College Award — Maharashtra 2025</div>
+            <div class="u-blurb">Honoured by the State Dept. of Agriculture for excellence in research &amp; innovation.</div>
+          </div>
+        </div>
+        <div class="u-item reveal">
+          <div class="u-date-block"><div class="u-day">01</div><div class="u-month">Mar</div></div>
+          <div class="u-content">
+            <div class="u-tag">Event</div>
+            <div class="u-title">Annual AgriTech Expo 2025 — 5,000+ visitors attended</div>
+            <div class="u-blurb">Students showcased 28 innovations including AI crop monitors and bio-fertilisers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<div class="prog-sec">
+  <div class="prog-inner">
+    <div>
+      <div class="sec-tag">Programmes</div>
+      <h2 class="sec-h" style="margin-bottom:0">Degrees Built for Tomorrow's <em>Innovators</em></h2>
+      <div class="prog-list">
+        <div class="p-item active"><div class="p-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22V12M12 12C12 12 7 10 4 6c4 0 8 2 8 6z"/></svg></div><div><div class="p-name">B.Sc. Agriculture</div><div class="p-dur">4 Years · Full-time</div></div><div class="p-arr">→</div></div>
+        <div class="p-item"><div class="p-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg></div><div><div class="p-name">B. Pharm</div><div class="p-dur">4 Years · Full-time</div></div><div class="p-arr">→</div></div>
+        <div class="p-item"><div class="p-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M8 3v4m8-4v4M3 8h18M5 21h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2z"/></svg></div><div><div class="p-name">M.Sc. Biotechnology</div><div class="p-dur">2 Years · Research Track</div></div><div class="p-arr">→</div></div>
+        <div class="p-item"><div class="p-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><div class="p-name">MBA — Agri Business</div><div class="p-dur">2 Years · Industry Integrated</div></div><div class="p-arr">→</div></div>
+      </div>
+    </div>
+    <div class="prog-vis">
+      <div class="pv"><div class="pv-top pv-b1"><svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="18" fill="rgba(232,160,32,0.1)" stroke="rgba(232,160,32,0.5)" stroke-width="1.5"/><path d="M23 33V23M23 23C23 23 18 21 15 17c4 0 8 2 8 6z" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"/></svg></div><div class="pv-info"><div class="pv-ttl">Crop Science Lab</div><div class="pv-sub">Smart glasshouses</div></div></div>
+      <div class="pv"><div class="pv-top pv-b2"><svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="18" fill="rgba(55,138,221,0.1)" stroke="rgba(55,138,221,0.5)" stroke-width="1.5"/><rect x="14" y="14" width="18" height="18" rx="3" fill="none" stroke="#378ADD" stroke-width="1.5"/><path d="M18 23h10M23 18v10" stroke="#378ADD" stroke-width="2" stroke-linecap="round"/></svg></div><div class="pv-info"><div class="pv-ttl">Pharma Research</div><div class="pv-sub">Drug formulation labs</div></div></div>
+      <div class="pv"><div class="pv-top pv-b3"><svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="18" fill="rgba(99,153,34,0.1)" stroke="rgba(99,153,34,0.5)" stroke-width="1.5"/><path d="M23 13v4M23 29v4M13 23h4M29 23h4" stroke="#639922" stroke-width="2" stroke-linecap="round"/><circle cx="23" cy="23" r="5" fill="rgba(99,153,34,0.25)" stroke="#639922" stroke-width="1.5"/></svg></div><div class="pv-info"><div class="pv-ttl">Genomics Centre</div><div class="pv-sub">DNA sequencing</div></div></div>
+      <div class="pv"><div class="pv-top pv-b4"><svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="18" fill="rgba(239,159,39,0.1)" stroke="rgba(239,159,39,0.5)" stroke-width="1.5"/><path d="M19 31l-4-8 4-8h8l4 8-4 8z" fill="none" stroke="#EF9F27" stroke-width="1.5"/><circle cx="23" cy="23" r="3" fill="#EF9F27"/></svg></div><div class="pv-info"><div class="pv-ttl">Startup Incubator</div><div class="pv-sub">40+ agri-startups</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <div class="nav-brand"><div class="brand-seal">LG</div><div class="brand-name" style="color:#fff">Lokmangal Group <small>of Colleges, Solapur</small></div></div>
+        <p class="foot-brand-p">Shaping the future of agricultural science, biotechnology and pharmaceutical innovation since 2001. Rooted in Maharashtra, reaching the world.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Academics</h5>
+        <ul>
+          <li><a href="#">Agriculture</a></li>
+          <li><a href="#">Pharmacy</a></li>
+          <li><a href="#">Biotechnology</a></li>
+          <li><a href="#">MBA Programs</a></li>
+          <li><a href="#">PhD Research</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Campus</h5>
+        <ul>
+          <li><a href="#">Smart Labs</a></li>
+          <li><a href="#">Hostel</a></li>
+          <li><a href="#">Library</a></li>
+          <li><a href="#">Sports Complex</a></li>
+          <li><a href="#">Incubation Hub</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#">Admissions 2025</a></li>
+          <li><a href="#">Placements</a></li>
+          <li><a href="#">Alumni Portal</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="https://lokmangalcolleges.org/" target="_blank">Official Website ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© 2025 Lokmangal Group of Colleges, Solapur. All rights reserved.</p>
+      <div class="socials">
+        <div class="soc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div class="soc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,.5)" stroke="none"/></svg></div>
+        <div class="soc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></div>
+        <div class="soc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.p-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    document.querySelectorAll('.p-item').forEach(i=>i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background =
+    window.scrollY>60 ? 'rgba(10,18,35,0.98)' : 'rgba(12,31,63,0.96)';
+});
+</script>
+</body>
+</html>
