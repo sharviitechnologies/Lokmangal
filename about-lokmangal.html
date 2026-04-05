@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Lokmangal – Lokmangal Group of Institutions</title>
+  <script>window._twq=window._twq||[];/* suppress production warning */</script>
+  <script src="https://cdn.tailwindcss.com?v=3"></script>
+  <script>
+    // Suppress Tailwind CDN production warning
+    (function() {
+      const _warn = console.warn.bind(console);
+      console.warn = function(...args) {
+        if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+        _warn(...args);
+      };
+    })();
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue-deep: #0f2d6b;
+      --blue-mid:  #1a4ea6;
+      --blue-light:#e8f0fc;
+      --orange:    #f97316;
+      --orange-dark:#ea6c10;
+      --cream:     #fafaf8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+    /* ---------- NAV ---------- */
+    nav { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 16px rgba(15,45,107,.09); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 72px; }
+    .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .logo-mark { width: 44px; height: 44px; background: var(--blue-deep); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark span { color: #fff; font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.1rem; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-text strong { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--blue-deep); }
+    .logo-text small { font-size: .7rem; color: #64748b; letter-spacing: .04em; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: .9rem; font-weight: 500; color: #475569; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue-deep); }
+    .nav-links a.active { border-bottom: 2px solid var(--orange); padding-bottom: 2px; }
+
+    .nav-cta { background: var(--orange); color: #fff; border: none; padding: .55rem 1.4rem; border-radius: 8px; font-size: .875rem; font-weight: 600; cursor: pointer; transition: background .2s; text-decoration: none; }
+    .nav-cta:hover { background: var(--orange-dark); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blue-deep); border-radius: 2px; transition: all .3s; }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 60%, #1e6fd1 100%);
+      position: relative; overflow: hidden; padding: 5rem 2rem 4.5rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-geo {
+      position: absolute; right: -80px; top: -80px;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: rgba(255,255,255,.05); pointer-events: none;
+    }
+    .hero-geo2 {
+      position: absolute; left: -60px; bottom: -100px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(249,115,22,.1); pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 1280px; margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.25rem; font-size: .82rem; }
+    .breadcrumb a { color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { color: rgba(255,255,255,.4); }
+    .breadcrumb-current { color: var(--orange); font-weight: 500; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: #fff; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+    .hero-accent { color: var(--orange); }
+    .hero p { color: rgba(255,255,255,.75); max-width: 540px; line-height: 1.75; font-size: 1rem; }
+    .hero-bar { margin-top: 2.5rem; display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .hero-stat { text-align: left; }
+    .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: #fff; font-family: 'Playfair Display', serif; }
+    .hero-stat small { font-size: .78rem; color: rgba(255,255,255,.6); letter-spacing: .05em; text-transform: uppercase; }
+    .hero-divider { width: 1px; background: rgba(255,255,255,.2); }
+
+    /* ---------- SECTION UTILITIES ---------- */
+    .section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { display: inline-flex; align-items: center; gap: .5rem; background: var(--blue-light); color: var(--blue-mid); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 100px; margin-bottom: 1rem; }
+    .section-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    h2.section-title { font-size: clamp(1.7rem, 3.5vw, 2.5rem); color: var(--blue-deep); line-height: 1.2; margin-bottom: .75rem; }
+    .section-sub { color: #64748b; line-height: 1.75; max-width: 600px; }
+    .orange-line { width: 48px; height: 4px; background: var(--orange); border-radius: 4px; margin: 1rem 0 1.5rem; }
+
+    /* ---------- LEGACY ---------- */
+    .legacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .legacy-image { position: relative; }
+    .legacy-img-box {
+      border-radius: 20px; overflow: hidden; height: 420px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .legacy-img-box svg { opacity: .3; }
+    .legacy-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--orange); color: #fff; border-radius: 16px;
+      padding: 1.25rem 1.5rem; text-align: center; box-shadow: 0 8px 32px rgba(249,115,22,.35);
+    }
+    .legacy-badge strong { display: block; font-size: 2rem; font-family: 'Playfair Display',serif; }
+    .legacy-badge span { font-size: .78rem; opacity: .9; }
+    .legacy-text p { color: #475569; line-height: 1.85; margin-bottom: 1rem; font-size: .97rem; }
+
+    /* ---------- VISION MISSION ---------- */
+    .vm-section { background: var(--blue-deep); }
+    .vm-section .section-label { background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); }
+    .vm-section h2.section-title { color: #fff; }
+    .vm-section .section-sub { color: rgba(255,255,255,.65); }
+    .vm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .vm-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px; padding: 2rem; transition: transform .3s, background .3s;
+      backdrop-filter: blur(4px);
+    }
+    .vm-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.12); }
+    .vm-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--orange); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .vm-icon svg { color: #fff; }
+    .vm-card h3 { color: #fff; font-size: 1.2rem; margin-bottom: .65rem; }
+    .vm-card p { color: rgba(255,255,255,.65); line-height: 1.75; font-size: .9rem; }
+
+    /* ---------- FOUNDER ---------- */
+    .founder-grid { display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: start; }
+    .founder-photo {
+      border-radius: 20px; overflow: hidden; background: linear-gradient(160deg, #e8f0fc, #c7d9f8);
+      height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; border: 1px solid #dbeafe;
+    }
+    .founder-avatar { width: 110px; height: 110px; border-radius: 50%; background: var(--blue-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .founder-avatar svg { color: rgba(255,255,255,.8); }
+    .founder-photo p { color: var(--blue-mid); font-size: .82rem; font-weight: 500; }
+    .founder-content { padding-top: .5rem; }
+    blockquote.founder-quote {
+      position: relative; padding: 2rem 2rem 2rem 3rem;
+      background: var(--blue-light); border-left: 4px solid var(--orange);
+      border-radius: 0 16px 16px 0; font-size: 1.02rem; line-height: 1.85; color: #334155;
+      font-style: italic; margin-bottom: 1.5rem;
+    }
+    blockquote.founder-quote::before {
+      content: '\201C';
+      position: absolute; left: .8rem; top: .5rem;
+      font-size: 3.5rem; color: var(--orange); opacity: .6; line-height: 1;
+      font-family: 'Playfair Display', serif;
+    }
+    .founder-sig { display: flex; flex-direction: column; gap: .2rem; }
+    .founder-sig strong { color: var(--blue-deep); font-size: 1rem; font-family: 'Playfair Display',serif; }
+    .founder-sig span { color: var(--orange); font-size: .82rem; font-weight: 500; }
+
+    /* ---------- CORE VALUES ---------- */
+    .values-section { background: #f1f5f9; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .value-card {
+      background: #fff; border-radius: 16px; padding: 1.75rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(15,45,107,.07); transition: box-shadow .3s, transform .3s;
+      display: flex; flex-direction: column; gap: .75rem;
+    }
+    .value-card:hover { box-shadow: 0 8px 32px rgba(15,45,107,.13); transform: translateY(-3px); }
+    .value-num { width: 36px; height: 36px; border-radius: 10px; background: var(--orange); color: #fff; font-size: .8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .value-card h4 { color: var(--blue-deep); font-size: 1rem; }
+    .value-card p { color: #64748b; font-size: .85rem; line-height: 1.65; }
+    .value-icon { color: var(--blue-mid); margin-bottom: .25rem; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--blue-deep); color: rgba(255,255,255,.75); }
+    .footer-top { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand p { font-size: .875rem; line-height: 1.75; margin-top: .75rem; color: rgba(255,255,255,.55); max-width: 280px; }
+    .footer-col h5 { color: #fff; font-family: 'Playfair Display',serif; font-size: 1rem; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul li a { color: rgba(255,255,255,.55); text-decoration: none; font-size: .85rem; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); max-width: 1280px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .8rem; color: rgba(255,255,255,.4); }
+    .footer-bottom a { color: var(--orange); text-decoration: none; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .legacy-grid, .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .legacy-badge { right: 0; bottom: -16px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .hero-bar { gap: 1.5rem; }
+      .hero-divider { display: none; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* Scroll fade-in */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><span>LM</span></div>
+      <div class="logo-text">
+        <strong>Lokmangal</strong>
+        <small>Group of Institutions</small>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">About Us</a></li>
+      <li><a href="#">Our Colleges</a></li>
+      <li><a href="#">Certificate Courses</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Career</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Contact Us</a>
+    <div class="hamburger" onclick="this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-geo"></div>
+  <div class="hero-geo2"></div>
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Home</a>
+      <span>›</span>
+      <a href="#">About Us</a>
+      <span>›</span>
+      <span class="breadcrumb-current">About Lokmangal</span>
+    </nav>
+    <h1>About <span class="hero-accent">Lokmangal</span><br/>Group of Institutions</h1>
+    <p>Rooted in the spirit of rural Maharashtra, Lokmangal has been cultivating knowledge, character, and innovation since 2003 — building bridges between tradition and tomorrow.</p>
+    <div class="hero-bar">
+      <div class="hero-stat">
+        <strong>2003</strong>
+        <small>Year Founded</small>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <strong>8+</strong>
+        <small>Colleges</small>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <strong>10,000+</strong>
+        <small>Students Shaped</small>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <strong>25+</strong>
+        <small>Live Projects</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEGACY / HISTORY ===== -->
+<section class="section">
+  <div class="section-inner">
+    <div class="legacy-grid">
+      <div class="legacy-image fade-in">
+        <div class="legacy-img-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width=".6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+          </svg>
+        </div>
+        <div class="legacy-badge">
+          <strong>20+</strong>
+          <span>Years of Excellence</span>
+        </div>
+      </div>
+
+      <div class="legacy-text fade-in">
+        <div class="section-label"><span class="dot"></span> Our Legacy</div>
+        <h2 class="section-title">A Story Rooted in<br/>Rural Transformation</h2>
+        <div class="orange-line"></div>
+        <p>The Lokmangal Group of Institutions was founded in 2003 under the visionary leadership of Hon. Shri. Subhashrao Deshmukh, with the profound conviction that quality education must reach every corner of rural Maharashtra — not merely the privileged few in urban centres.</p>
+        <p>Starting with the flagship Lokmangal Agriculture College in Wadala (Nanded), the group has grown into a thriving ecosystem of eight specialised institutions spanning agriculture, biotechnology, pharmacy, nursing, science, business management, ITI, and junior college education.</p>
+        <p>Beyond classrooms, Lokmangal has established more than 25 live projects — from Biodiversity Parks and Bio-Gas Plants to Community Radio and a Water Bank — embedding sustainability and entrepreneurship into its DNA. These initiatives are not merely add-ons; they are laboratories where students learn by doing, producing, and impacting.</p>
+        <p>Today, Lokmangal stands as a beacon for rural youth, proving that ambition and opportunity need not be confined to cities. Its campuses pulse with curiosity, innovation, and a deep sense of social responsibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION & MISSION ===== -->
+<section class="section vm-section">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-label"><span class="dot"></span> Purpose &amp; Direction</div>
+      <h2 class="section-title">Vision &amp; Mission</h2>
+      <p class="section-sub">Every institution we build is guided by a clear compass — empowering the rural youth of India through holistic, practice-based education.</p>
+    </div>
+    <div class="vm-grid">
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>To become a globally recognised centre of agricultural and multidisciplinary education, producing skilled, ethical, and innovative professionals who uplift rural communities and contribute meaningfully to a sustainable India.</p>
+      </div>
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To provide accessible, affordable, and industry-relevant education; to foster research and innovation; and to nurture graduates who are socially conscious, technically proficient, and capable of transforming Indian agriculture and allied sectors.</p>
+      </div>
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Community Impact</h3>
+        <p>We are committed to the holistic development of the communities surrounding our campuses — through extension activities, farmer training, soil testing services, and community healthcare outreach that translate education into real-world impact.</p>
+      </div>
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Innovation &amp; Research</h3>
+        <p>Through our network of live projects, tissue culture labs, bio-fertiliser units, and a community radio station, we embed experiential research into everyday learning — making innovation a habit, not a milestone.</p>
+      </div>
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Academic Excellence</h3>
+        <p>Affiliated with leading universities and governed by statutory bodies, all Lokmangal institutions maintain rigorous academic standards — combining structured curricula with the flexibility to innovate, experiment, and grow.</p>
+      </div>
+
+      <div class="vm-card fade-in">
+        <div class="vm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Student Welfare</h3>
+        <p>From scholarships and hostel facilities to career guidance and placement support, Lokmangal wraps every student in a safety net of resources — so that ambition is never limited by circumstance.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER'S MESSAGE ===== -->
+<section class="section">
+  <div class="section-inner">
+    <div class="founder-grid">
+      <div class="fade-in">
+        <div class="founder-photo">
+          <div class="founder-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <p style="color:var(--blue-mid);font-weight:600;font-size:.95rem;margin-top:.25rem;">Hon. Shri. Subhashrao Deshmukh</p>
+          <p style="color:#94a3b8;font-size:.78rem;margin-top:.25rem;">Founder &amp; Chairman</p>
+          <p style="color:#cbd5e1;font-size:.72rem;margin-top:.5rem;font-style:italic;">[Photo Placeholder]</p>
+        </div>
+      </div>
+
+      <div class="founder-content fade-in">
+        <div class="section-label"><span class="dot"></span> Founder's Message</div>
+        <h2 class="section-title">A Dream Born from<br/>the Fields of Maharashtra</h2>
+        <div class="orange-line"></div>
+
+        <blockquote class="founder-quote">
+          Education is the most powerful instrument we can give to a child in a village. When I founded Lokmangal, my dream was simple yet vast: to ensure that the son of a farmer in Nanded has access to the same quality of education as anyone in Pune or Mumbai. Twenty years on, that dream is alive — not just in our campuses, but in the careers, confidence, and communities our graduates have built across Maharashtra and beyond.
+        </blockquote>
+
+        <p style="color:#64748b;line-height:1.8;font-size:.93rem;margin-bottom:1.25rem;">
+          Our name, Lokmangal, means "welfare of the people" — and every decision we make, every institution we establish, every project we launch, is anchored in that promise. We do not just train professionals; we shape citizens who feel a deep duty to give back to the soil and the society that nurtured them.
+        </p>
+
+        <div class="founder-sig">
+          <strong>Hon. Shri. Subhashrao Deshmukh</strong>
+          <span>Founder &amp; Chairman — Lokmangal Group of Institutions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE VALUES ===== -->
+<section class="section values-section">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center;margin-bottom:.5rem;">
+      <div class="section-label" style="margin:0 auto 1rem;"><span class="dot"></span> What We Stand For</div>
+      <h2 class="section-title" style="text-align:center;">Our Core Values</h2>
+      <div class="orange-line" style="margin:1rem auto 0;"></div>
+    </div>
+    <div class="values-grid" style="margin-top:3rem;">
+
+      <div class="value-card fade-in">
+        <div class="value-num">01</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Integrity</h4>
+        <p>Transparency, honesty, and ethical conduct underpin everything we do — from academic evaluation to institutional governance.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <div class="value-num">02</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4>Innovation</h4>
+        <p>We champion creative thinking and encourage students to question, experiment, and develop solutions for real-world agricultural and social challenges.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <div class="value-num">03</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h4>Inclusivity</h4>
+        <p>Quality education is a right, not a privilege. We actively reach students from underprivileged and rural backgrounds through accessible fee structures and scholarships.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <div class="value-num">04</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h4>Excellence</h4>
+        <p>We set and pursue high standards across every discipline — in teaching, research, campus facilities, and student outcomes — refusing to be ordinary.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <div class="value-num">05</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>Social Responsibility</h4>
+        <p>Our campuses are deeply embedded in local communities. We give back through extension services, farmer training, healthcare camps, and environmental conservation.</p>
+      </div>
+
+      <div class="value-card fade-in">
+        <div class="value-num">06</div>
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h4>Sustainability</h4>
+        <p>With projects like rain water harvesting, bio-gas plants, and vermi-composting, we model sustainable living — teaching the next generation to be stewards of the earth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark"><span>LM</span></div>
+        <div class="logo-text">
+          <strong style="color:#fff;">Lokmangal</strong>
+          <small style="color:rgba(255,255,255,.45);">Group of Institutions</small>
+        </div>
+      </div>
+      <p>Empowering rural youth through quality education, innovation, and a commitment to the welfare of all — since 2003.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Our Colleges</h5>
+      <ul>
+        <li><a href="#">Agriculture College</a></li>
+        <li><a href="#">Agricultural Biotechnology</a></li>
+        <li><a href="#">Agri Business Management</a></li>
+        <li><a href="#">Science &amp; Entrepreneurship</a></li>
+        <li><a href="#">D &amp; B Pharmacy</a></li>
+        <li><a href="#">Nursing College</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Administration</a></li>
+        <li><a href="#">Certificate Courses</a></li>
+        <li><a href="#">e-Publication</a></li>
+        <li><a href="#">Career</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Wadala, Nanded District</a></li>
+        <li><a href="#">Maharashtra, India</a></li>
+        <li><a href="tel:+912462000000">+91 2462 000 000</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#dbb2b5bdb49bb7b4b0b6bab5bcbab7b8b4b7b7bebcbea8f5b4a9bc"><span class="__cf_email__" data-cfemail="fd94939b92bd919296909c939a9c919e929191989a988ed3928f9a">[email&#160;protected]</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Lokmangal Group of Institutions. All rights reserved.</span>
+    <span>Designed with ❤️ for rural Maharashtra · <a href="#">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelector
