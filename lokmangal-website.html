@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokmangal Group of Institutions | Shaping Futures</title>
+  <meta name="description" content="Lokmangal Group - 50+ years of academic excellence across 10+ specialized colleges in Maharashtra. NAAC Accredited.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(200 20% 97%)',
+            foreground: 'hsl(205 50% 14%)',
+            card: 'hsl(0 0% 100%)',
+            'card-foreground': 'hsl(205 50% 14%)',
+            primary: 'hsl(205 55% 23%)',
+            'primary-foreground': 'hsl(45 50% 95%)',
+            secondary: 'hsl(180 60% 45%)',
+            'secondary-foreground': 'hsl(0 0% 100%)',
+            muted: 'hsl(200 15% 92%)',
+            'muted-foreground': 'hsl(205 15% 45%)',
+            accent: 'hsl(42 70% 55%)',
+            'accent-foreground': 'hsl(205 50% 14%)',
+            destructive: 'hsl(0 84.2% 60.2%)',
+            border: 'hsl(200 20% 88%)',
+            ring: 'hsl(180 60% 45%)',
+            cyan: 'hsl(180 60% 45%)',
+            'cyan-glow': 'hsl(180 70% 55%)',
+            gold: 'hsl(42 70% 55%)',
+            'gold-light': 'hsl(42 60% 75%)',
+            forest: 'hsl(205 55% 23%)',
+            'forest-deep': 'hsl(205 60% 15%)',
+            'forest-light': 'hsl(205 40% 35%)',
+          },
+          fontFamily: {
+            heading: ['Merriweather', 'serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Merriweather', serif; }
+
+    .glass {
+      background: hsla(0,0%,100%,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid hsla(0,0%,100%,0.3);
+      box-shadow: 0 8px 32px hsla(205,55%,23%,0.1);
+    }
+    .glass-dark {
+      background: hsla(205,55%,23%,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid hsla(0,0%,100%,0.1);
+    }
+
+    .section-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .section-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gold-underline { position: relative; display: inline-block; }
+    .gold-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, hsl(42 70% 55%), hsl(42 60% 75%));
+      border-radius: 2px;
+    }
+
+    .card-hover-lift {
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .card-hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px hsla(205,55%,23%,0.15);
+    }
+
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, hsl(180 60% 45%), hsl(180 70% 55%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease forwards;
+      opacity: 0;
+    }
+    @keyframes pulseGlow {
+      0%,100% { box-shadow: 0 0 0 0 hsla(180,60%,45%,0.4); }
+      50% { box-shadow: 0 0 20px 6px hsla(180,60%,45%,0.2); }
+    }
+    .animate-pulse-glow { animation: pulseGlow 2s infinite; }
+
+    .college-card { position: relative; overflow: hidden; border-radius: 1rem; }
+    .college-card img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .college-card:hover img { transform: scale(1.1); }
+    .college-card .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, hsla(205,55%,23%,0.9), transparent 60%);
+      transition: background 0.4s;
+    }
+    .college-card:hover .overlay {
+      background: hsla(180,60%,45%,0.8);
+    }
+    .college-card .explore-text { opacity: 0; transform: translateY(10px); transition: all 0.4s; }
+    .college-card:hover .explore-text { opacity: 1; transform: translateY(0); }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-background text-foreground antialiased">
+
+  <!-- ============ STICKY NAVBAR ============ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4">
+      <a href="#" class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+          <span class="font-heading text-sm font-bold text-primary-foreground">LG</span>
+        </div>
+        <span id="nav-brand" class="font-heading text-lg font-bold text-primary-foreground transition-colors">Lokmangal Group</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1" id="nav-links">
+        <a href="#about" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">About</a>
+        <a href="#colleges" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">Institutions</a>
+        <a href="#programs" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">Programs</a>
+        <a href="#chairman" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">Leadership</a>
+        <a href="#events" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">Events</a>
+        <a href="#contact" class="nav-link rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">Contact</a>
+        <a href="#contact" class="ml-3 rounded-lg bg-secondary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90">Apply Now</a>
+      </nav>
+      <div id="naac-badge" class="hidden lg:flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent/30 text-primary-foreground">
+        <span class="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">A</span>
+        NAAC Accredited
+      </div>
+      <button class="md:hidden text-primary-foreground" id="mobile-toggle" onclick="toggleMobile()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden glass absolute left-0 right-0 top-full border-t border-border p-4 md:hidden">
+      <a href="#about" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">About</a>
+      <a href="#colleges" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">Institutions</a>
+      <a href="#programs" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">Programs</a>
+      <a href="#chairman" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">Leadership</a>
+      <a href="#events" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">Events</a>
+      <a href="#contact" class="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-muted" onclick="closeMobile()">Contact</a>
+      <a href="#contact" class="mt-2 block rounded-lg bg-secondary px-4 py-3 text-center text-sm font-semibold text-white" onclick="closeMobile()">Apply Now</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80" alt="Campus aerial view" class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-deep/90 via-forest/80 to-forest-deep/95"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+      <div class="mx-auto max-w-4xl">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-2 text-sm font-medium text-gold-light animate-fade-in">
+          <span class="flex h-2 w-2 rounded-full bg-accent animate-pulse-glow"></span>
+          Admissions Open 2026–27
+        </div>
+        <h1 class="mb-6 font-heading text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-fade-up">
+          Shaping Futures Across <span class="text-gradient-cyan">10+ Institutions</span>
+        </h1>
+        <p class="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/80 animate-fade-up" style="animation-delay:0.2s">
+          Empowering students with quality education, modern infrastructure, and opportunities that build careers and transform lives across Maharashtra.
+        </p>
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up" style="animation-delay:0.4s">
+          <a href="#colleges" class="rounded-lg bg-secondary px-8 py-4 text-base font-semibold text-white transition-all hover:scale-105 hover:shadow-lg">Explore Colleges</a>
+          <a href="#contact" class="rounded-lg border border-primary-foreground/30 px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10">Apply Now →</a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 80" fill="none" class="w-full"><path d="M0,80 L0,40 Q720,0 1440,40 L1440,80 Z" fill="hsl(200 20% 97%)"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ STATS TICKER ============ -->
+  <section class="relative -mt-1 bg-primary py-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div class="flex flex-col items-center gap-3 px-6 py-8">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/20"><i data-lucide="graduation-cap" class="h-7 w-7 text-cyan"></i></div>
+          <div class="text-4xl font-bold text-primary-foreground font-heading md:text-5xl"><span class="counter" data-target="50">0</span>+</div>
+          <div class="text-sm font-medium text-primary-foreground/70 uppercase tracking-wider">Years of Excellence</div>
+        </div>
+        <div class="flex flex-col items-center gap-3 px-6 py-8">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/20"><i data-lucide="users" class="h-7 w-7 text-cyan"></i></div>
+          <div class="text-4xl font-bold text-primary-foreground font-heading md:text-5xl"><span class="counter" data-target="15000">0</span>+</div>
+          <div class="text-sm font-medium text-primary-foreground/70 uppercase tracking-wider">Alumni Network</div>
+        </div>
+        <div class="flex flex-col items-center gap-3 px-6 py-8">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/20"><i data-lucide="trees" class="h-7 w-7 text-cyan"></i></div>
+          <div class="text-4xl font-bold text-primary-foreground font-heading md:text-5xl"><span class="counter" data-target="169">0</span></div>
+          <div class="text-sm font-medium text-primary-foreground/70 uppercase tracking-wider">Acre Eco-Campus</div>
+        </div>
+        <div class="flex flex-col items-center gap-3 px-6 py-8">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/20"><i data-lucide="building-2" class="h-7 w-7 text-cyan"></i></div>
+          <div class="text-4xl font-bold text-primary-foreground font-heading md:text-5xl"><span class="counter" data-target="10">0</span>+</div>
+          <div class="text-sm font-medium text-primary-foreground/70 uppercase tracking-wider">Specialized Colleges</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <section id="about" class="bg-card py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <span class="mb-3 inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary">About Us</span>
+            <h2 class="mb-6 font-heading text-3xl font-bold text-foreground gold-underline md:text-4xl">About Lokmangal Group</h2>
+            <p class="mb-6 text-muted-foreground leading-relaxed">
+              Established over 50 years ago, Lokmangal Group of Institutions has grown into one of Maharashtra's most respected educational networks. With 10+ colleges spanning Engineering, Arts, Science, Commerce, and Professional studies, we are committed to nurturing the next generation of leaders, innovators, and change-makers.
+            </p>
+            <p class="mb-8 text-muted-foreground leading-relaxed">
+              Our mission is to provide accessible, high-quality education that empowers students to achieve their full potential. Backed by world-class infrastructure, experienced faculty, and strong industry connections, we bridge the gap between education and employability.
+            </p>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-secondary"></i><span class="text-sm font-medium text-foreground">NAAC Accredited with 'A' Grade</span></div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-secondary"></i><span class="text-sm font-medium text-foreground">169 Acre Green Eco-Campus</span></div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-secondary"></i><span class="text-sm font-medium text-foreground">50+ Years of Academic Legacy</span></div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle" class="h-4 w-4 text-secondary"></i><span class="text-sm font-medium text-foreground">Strong Industry Partnerships</span></div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-secondary/20 to-gold/20 blur-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80" alt="University campus building" class="relative rounded-2xl shadow-2xl w-full h-80 object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLLEGES GRID ============ -->
+  <section id="colleges" class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="mb-16 text-center">
+          <span class="mb-3 inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary">Our Institutions</span>
+          <h2 class="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">Choose Your Path</h2>
+          <p class="mx-auto max-w-2xl text-muted-foreground">A network of excellence spanning diverse disciplines across Maharashtra.</p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Engineering College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Engineering</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Engineering</h3>
+              <p class="text-sm text-white/80">B.E., M.E., Diploma Programs</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="Pharmacy College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Pharmacy</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Pharmacy</h3>
+              <p class="text-sm text-white/80">B.Pharm, M.Pharm, D.Pharm</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="Agriculture College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Agriculture</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Agriculture</h3>
+              <p class="text-sm text-white/80">B.Sc Agri, M.Sc Agri</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=600&q=80" alt="Management College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Management</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Management</h3>
+              <p class="text-sm text-white/80">MBA, BBA, B.Com</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Arts & Science College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Arts & Science</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Arts & Science</h3>
+              <p class="text-sm text-white/80">B.A., B.Sc, M.A., M.Sc</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+          <div class="college-card h-72 cursor-pointer card-hover-lift shadow-lg">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&q=80" alt="Law College" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+            <div class="overlay"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6">
+              <span class="mb-2 inline-block self-start rounded-full bg-secondary/80 px-3 py-1 text-xs font-semibold text-white">Law</span>
+              <h3 class="font-heading text-xl font-bold text-white">College of Law</h3>
+              <p class="text-sm text-white/80">LLB, BA LLB</p>
+              <span class="explore-text mt-2 text-sm font-semibold text-white">Explore Program →</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMS SECTION ============ -->
+  <section id="programs" class="bg-muted py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="mb-16 text-center">
+          <span class="mb-3 inline-block rounded-full bg-accent/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-foreground">Academics</span>
+          <h2 class="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">Programs & Courses</h2>
+          <p class="mx-auto max-w-2xl text-muted-foreground">Comprehensive academic offerings to match every aspiration.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="glass rounded-2xl p-8 card-hover-lift">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10"><i data-lucide="book-open" class="h-6 w-6 text-secondary"></i></div>
+            <h3 class="mb-4 font-heading text-lg font-bold text-foreground">Undergraduate Programs</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.E. / B.Tech</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.Sc</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.Com</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.A.</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.Pharm</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>BBA / BCA</li>
+            </ul>
+          </div>
+          <div class="glass rounded-2xl p-8 card-hover-lift">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10"><i data-lucide="award" class="h-6 w-6 text-secondary"></i></div>
+            <h3 class="mb-4 font-heading text-lg font-bold text-foreground">Postgraduate Programs</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>M.E. / M.Tech</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>M.Sc</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>M.Com</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>MBA / MCA</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>M.Pharm</li>
+            </ul>
+          </div>
+          <div class="glass rounded-2xl p-8 card-hover-lift">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10"><i data-lucide="briefcase" class="h-6 w-6 text-secondary"></i></div>
+            <h3 class="mb-4 font-heading text-lg font-bold text-foreground">Professional Courses</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>Diploma Engineering</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>D.Pharm</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>B.Ed</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>LLB</li>
+              <li class="flex items-center gap-2 text-sm text-muted-foreground"><span class="h-1.5 w-1.5 rounded-full bg-secondary inline-block"></span>Agriculture Diploma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHAIRMAN / LEADERSHIP SECTION ============ -->
+  <section id="chairman" class="relative overflow-hidden bg-card py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="mb-16 text-center">
+          <span class="mb-3 inline-block rounded-full bg-accent/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-foreground">Leadership</span>
+          <h2 class="font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">Founder's Vision</h2>
+        </div>
+        <div class="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-5">
+          <div class="flex flex-col items-center md:col-span-2">
+            <div class="relative mb-6">
+              <div class="absolute -inset-2 rounded-full bg-gradient-to-br from-secondary to-gold opacity-30 blur-md"></div>
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Chairman" class="relative h-56 w-56 rounded-full object-cover ring-4 ring-card shadow-xl" />
+            </div>
+            <h3 class="font-heading text-xl font-bold text-foreground">Hon. Founder Chairman</h3>
+            <p class="text-sm text-muted-foreground">Lokmangal Group of Institutions</p>
+          </div>
+          <div class="md:col-span-3">
+            <div class="relative rounded-2xl bg-muted p-8 md:p-10">
+              <i data-lucide="quote" class="absolute top-6 left-6 h-10 w-10 text-accent/30"></i>
+              <blockquote class="relative z-10 mb-6 font-heading text-lg italic leading-relaxed text-foreground md:text-xl">
+                "Education is the most powerful instrument of social transformation. Our mission has always been to create an institution that provides world-class education while remaining rooted in the values of service, integrity, and nation-building."
+              </blockquote>
+              <p class="text-sm font-semibold text-accent">— From the Founder's Desk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS & NEWS ============ -->
+  <section id="events" class="bg-background py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="mb-16 text-center">
+          <span class="mb-3 inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-secondary">Stay Updated</span>
+          <h2 class="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">Events & News</h2>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-5">
+          <!-- Notice Board -->
+          <div class="lg:col-span-2">
+            <div class="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <div class="mb-6 flex items-center gap-2">
+                <i data-lucide="bell" class="h-5 w-5 text-accent"></i>
+                <h3 class="font-heading text-lg font-bold text-foreground">Notice Board</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="rounded-xl bg-muted p-4 border-l-4 border-destructive">
+                  <div class="flex items-center gap-2 mb-1"><span class="inline-block rounded-full bg-destructive px-2 py-0.5 text-[10px] font-bold text-white animate-pulse">URGENT</span></div>
+                  <p class="text-sm font-medium text-foreground">Last date for admission: March 31, 2026</p>
+                  <p class="text-xs text-muted-foreground mt-1">Mar 15, 2026</p>
+                </div>
+                <div class="rounded-xl bg-muted p-4">
+                  <p class="text-sm font-medium text-foreground">Annual Sports Meet 2026 registrations open</p>
+                  <p class="text-xs text-muted-foreground mt-1">Mar 10, 2026</p>
+                </div>
+                <div class="rounded-xl bg-muted p-4">
+                  <p class="text-sm font-medium text-foreground">Guest lecture: AI in Modern Agriculture</p>
+                  <p class="text-xs text-muted-foreground mt-1">Mar 5, 2026</p>
+                </div>
+                <div class="rounded-xl bg-muted p-4">
+                  <p class="text-sm font-medium text-foreground">Scholarship applications open for 2026-27</p>
+                  <p class="text-xs text-muted-foreground mt-1">Feb 28, 2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- News Cards -->
+          <div class="lg:col-span-3">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div class="rounded-2xl border border-border bg-card overflow-hidden shadow-sm card-hover-lift">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="News" class="h-40 w-full object-cover" loading="lazy"/>
+                <div class="p-5">
+                  <span class="inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary mb-2">Campus</span>
+                  <h4 class="font-heading text-base font-bold text-foreground mb-2">New Research Center inaugurated</h4>
+                  <p class="text-sm text-muted-foreground line-clamp-2">State-of-the-art research facility equipped with modern laboratories for interdisciplinary research.</p>
+                  <p class="text-xs text-muted-foreground mt-3">Mar 12, 2026</p>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-border bg-card overflow-hidden shadow-sm card-hover-lift">
+                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&q=80" alt="News" class="h-40 w-full object-cover" loading="lazy"/>
+                <div class="p-5">
+                  <span class="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent-foreground mb-2">Achievement</span>
+                  <h4 class="font-heading text-base font-bold text-foreground mb-2">Students win National Hackathon</h4>
+                  <p class="text-sm text-muted-foreground line-clamp-2">Team of engineering students secured first place in the national-level Smart India Hackathon 2026.</p>
+                  <p class="text-xs text-muted-foreground mt-3">Mar 8, 2026</p>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-border bg-card overflow-hidden shadow-sm card-hover-lift">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="News" class="h-40 w-full object-cover" loading="lazy"/>
+                <div class="p-5">
+                  <span class="inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary mb-2">Placement</span>
+                  <h4 class="font-heading text-base font-bold text-foreground mb-2">Record placement season 2025-26</h4>
+                  <p class="text-sm text-muted-foreground line-clamp-2">Over 85% placement rate with top companies visiting the campus for recruitment drives.</p>
+                  <p class="text-xs text-muted-foreground mt-3">Mar 1, 2026</p>
+                </div>
+              </div>
+              <div class="rounded-2xl border border-border bg-card overflow-hidden shadow-sm card-hover-lift">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" alt="News" class="h-40 w-full object-cover" loading="lazy"/>
+                <div class="p-5">
+                  <span class="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent-foreground mb-2">Cultural</span>
+                  <h4 class="font-heading text-base font-bold text-foreground mb-2">Annual Cultural Fest 'Umang' dates announced</h4>
+                  <p class="text-sm text-muted-foreground line-clamp-2">Three-day cultural extravaganza featuring performances, competitions and celebrity guests.</p>
+                  <p class="text-xs text-muted-foreground mt-3">Feb 25, 2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="bg-card py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <div class="mb-16 text-center">
+          <span class="mb-3 inline-block rounded-full bg-accent/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-foreground">Testimonials</span>
+          <h2 class="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">Success Stories</h2>
+        </div>
+        <div class="mx-auto max-w-3xl" id="testimonial-container">
+          <div class="rounded-2xl bg-muted p-8 md:p-12 text-center relative">
+            <i data-lucide="quote" class="mx-auto mb-6 h-10 w-10 text-accent/40"></i>
+            <p id="testimonial-quote" class="mb-8 font-heading text-lg italic leading-relaxed text-foreground md:text-xl">
+              "The engineering program at Lokmangal gave me the foundation I needed. The placement cell helped me land my dream job at TCS right after graduation."
+            </p>
+            <div class="flex items-center justify-center gap-4">
+              <div id="testimonial-avatar" class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">RP</div>
+              <div class="text-left">
+                <p id="testimonial-name" class="font-semibold text-foreground">Rahul Patil</p>
+                <p id="testimonial-role" class="text-sm text-muted-foreground">Software Engineer at TCS</p>
+                <p id="testimonial-college" class="text-xs text-accent">College of Engineering, Batch 2022</p>
+              </div>
+            </div>
+            <div class="mt-8 flex items-center justify-center gap-4">
+              <button onclick="prevTestimonial()" class="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card hover:bg-muted transition-colors"><i data-lucide="chevron-left" class="h-5 w-5"></i></button>
+              <div id="testimonial-dots" class="flex gap-2"></div>
+              <button onclick="nextTestimonial()" class="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card hover:bg-muted transition-colors"><i data-lucide="chevron-right" class="h-5 w-5"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACCREDITATION BAR ============ -->
+  <section class="border-t border-border bg-card py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="section-reveal">
+        <p class="mb-8 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">Accreditations & Partners</p>
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10" id="partners-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAT FOOTER ============ -->
+  <footer id="contact" class="bg-primary text-primary-foreground">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Brand Column -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary"><span class="font-heading text-sm font-bold text-white">LG</span></div>
+            <span class="font-heading text-lg font-bold">Lokmangal Group</span>
+          </div>
+          <p class="mb-6 text-sm text-primary-foreground/70 leading-relaxed">Empowering students with quality education since 1970. One of Maharashtra's most respected educational networks.</p>
+          <div class="space-y-2 text-sm text-primary-foreground/70">
+            <div class="flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-secondary"></i>Wadala, Solapur, Maharashtra 413222</div>
+            <div class="flex items-center gap-2"><i data-lucide="phone" class="h-4 w-4 text-secondary"></i>+91 217 273 1234</div>
+            <div class="flex items-center gap-2"><i data-lucide="mail" class="h-4 w-4 text-secondary"></i>info@lokmangal.edu.in</div>
+          </div>
+          <div class="mt-6 flex gap-3">
+            <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors"><i data-lucide="facebook" class="h-4 w-4"></i></a>
+            <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors"><i data-lucide="twitter" class="h-4 w-4"></i></a>
+            <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+            <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors"><i data-lucide="youtube" class="h-4 w-4"></i></a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="mb-4 font-heading text-base font-bold">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-primary-foreground/70">
+            <li><a href="#about" class="hover:text-secondary transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Admissions</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Placements</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Research</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Campus Life</a></li>
+            <li><a href="#contact" class="hover:text-secondary transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Colleges -->
+        <div>
+          <h4 class="mb-4 font-heading text-base font-bold">Colleges</h4>
+          <ul class="space-y-2 text-sm text-primary-foreground/70">
+            <li><a href="#" class="hover:text-secondary transition-colors">Engineering</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Pharmacy</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Agriculture</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Management</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Arts & Science</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Law</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <h4 class="mb-4 font-heading text-base font-bold">Newsletter</h4>
+          <p class="mb-4 text-sm text-primary-foreground/70">Stay updated with the latest news and events.</p>
+          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" class="flex gap-2">
+            <input type="email" placeholder="Your email" class="flex-1 rounded-lg bg-primary-foreground/10 px-4 py-2.5 text-sm text-primary-foreground placeholder:text-primary-foreground/50 border border-primary-foreground/20 outline-none focus:border-secondary" required />
+            <button type="submit" class="rounded-lg bg-secondary px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Subscribe</button>
+          </form>
+          <h4 class="mt-8 mb-4 font-heading text-base font-bold">Resources</h4>
+          <ul class="space-y-2 text-sm text-primary-foreground/70">
+            <li><a href="#" class="hover:text-secondary transition-colors">Academic Calendar</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Exam Results</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Library Portal</a></li>
+            <li><a href="#" class="hover:text-secondary transition-colors">Student ERP</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-primary-foreground/10">
+      <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center justify-between gap-4 md:flex-row">
+        <p class="text-xs text-primary-foreground/50">© 2026 Lokmangal Group of Institutions. All rights reserved.</p>
+        <div class="flex gap-6 text-xs text-primary-foreground/50">
+          <a href="#" class="hover:text-primary-foreground transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-primary-foreground transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-primary-foreground transition-colors">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING ACTION BUTTON ============ -->
+  <a href="https://wa.me/912172731234" target="_blank" class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg hover:scale-110 transition-transform animate-pulse-glow" title="WhatsApp Support">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.section-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Animated counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.counter').forEach(counter => {
+            const target = +counter.dataset.target;
+            const duration = 2000;
+            const start = performance.now();
+            function update(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              counter.textContent = Math.floor(eased * target).toLocaleString();
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c.closest('section')));
+
+    // Sticky navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      const brand = document.getElementById('nav-brand');
+      const badge = document.getElementById('naac-badge');
+      const links = document.querySelectorAll('.nav-link');
+      if (window.scrollY > 50) {
+        navbar.classList.add('glass');
+        navbar.classList.remove('bg-transparent', 'py-4');
+        navbar.classList.add('py-2', 'shadow-lg');
+        brand.classList.remove('text-primary-foreground');
+        brand.classList.add('text-foreground');
+        badge.classList.remove('bg-accent/30', 'text-primary-foreground');
+        badge.classList.add('bg-accent/20', 'text-accent-foreground');
+        links.forEach(l => { l.classList.remove('text-primary-foreground/90'); l.classList.add('text-foreground', 'hover:bg-muted'); });
+      } else {
+        navbar.classList.remove('glass', 'py-2', 'shadow-lg');
+        navbar.classList.add('bg-transparent', 'py-4');
+        brand.classList.add('text-primary-foreground');
+        brand.classList.remove('text-foreground');
+        badge.classList.add('bg-accent/30', 'text-primary-foreground');
+        badge.classList.remove('bg-accent/20', 'text-accent-foreground');
+        links.forEach(l => { l.classList.add('text-primary-foreground/90'); l.classList.remove('text-foreground', 'hover:bg-muted'); });
+      }
+    });
+
+    // Mobile menu
+    function toggleMobile() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+    function closeMobile() {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    // Testimonials
+    const testimonials = [
+      { name: "Rahul Patil", initials: "RP", role: "Software Engineer at TCS", college: "College of Engineering, Batch 2022", quote: "The engineering program at Lokmangal gave me the foundation I needed. The placement cell helped me land my dream job at TCS right after graduation." },
+      { name: "Priya Sharma", initials: "PS", role: "Pharmacist at Cipla", college: "College of Pharmacy, Batch 2021", quote: "The pharmacy labs and faculty mentorship at Lokmangal were exceptional. I felt completely prepared for the pharmaceutical industry from day one." },
+      { name: "Amit Deshmukh", initials: "AD", role: "Agri-Business Owner", college: "College of Agriculture, Batch 2020", quote: "Lokmangal's agriculture program connected me with the latest farming technologies and business skills. Today, I run a successful agri-tech startup." },
+      { name: "Sneha Kulkarni", initials: "SK", role: "Legal Consultant", college: "College of Law, Batch 2023", quote: "The moot court competitions and legal internships arranged by the college shaped my career. The faculty's guidance was invaluable throughout." },
+    ];
+    let currentT = 0;
+    function renderTestimonial() {
+      const t = testimonials[currentT];
+      document.getElementById('testimonial-quote').textContent = '"' + t.quote + '"';
+      document.getElementById('testimonial-name').textContent = t.name;
+      document.getElementById('testimonial-role').textContent = t.role;
+      document.getElementById('testimonial-college').textContent = t.college;
+      document.getElementById('testimonial-avatar').textContent = t.initials;
+      const dots = document.getElementById('testimonial-dots');
+      dots.innerHTML = '';
+      testimonials.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'h-2.5 w-2.5 rounded-full transition-colors ' + (i === currentT ? 'bg-secondary' : 'bg-border');
+        dot.onclick = () => { currentT = i; renderTestimonial(); };
+        dots.appendChild(dot);
+      });
+    }
+    function prevTestimonial() { currentT = (currentT - 1 + testimonials.length) % testimonials.length; renderTestimonial(); }
+    function nextTestimonial() { currentT = (currentT + 1) % testimonials.length; renderTestimonial(); }
+    renderTestimonial();
+
+    // Partners bar
+    const partners = ["AICTE","NAAC","Solapur University","DTE Maharashtra","PCI","NCTE","BCI","TCS","Infosys","Wipro","L&T","Cognizant","Accenture"];
+    const partnersBar = document.getElementById('partners-bar');
+    partners.forEach(name => {
+      const div = document.createElement('div');
+      div.className = 'flex h-12 items-center rounded-lg bg-muted px-5 text-sm font-semibold text-muted-foreground grayscale transition-all hover:grayscale-0 hover:text-foreground cursor-default';
+      div.textContent = name;
+      partnersBar.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
