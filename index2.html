@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,8 +212,9 @@
       .footer-bottom { flex-direction: column; text-align: center; }
     }
 
-    /* Scroll fade-in */
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    /* Scroll fade-in — visible by default; animation only if JS observer activates */
+    .fade-in { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.will-animate { opacity: 0; transform: translateY(24px); }
     .fade-in.visible { opacity: 1; transform: none; }
   </style>
 </head>
@@ -531,11 +533,40 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll-triggered fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+
+<script>
+  try {
+    var els = document.querySelectorAll('.fade-in');
+    els.forEach(function(el, i) {
+      el.classList.add('will-animate');
+      if (i % 3 !== 0) el.style.transitionDelay = (i % 3) * 0.1 + 's';
     });
-  }, { threshold: 0.12 });
-  document.querySelector
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.remove('will-animate');
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(function(el) { observer.observe(el); });
+
+    // Safety: reveal anything still hidden after 800ms
+    setTimeout(function() {
+      document.querySelectorAll('.fade-in.will-animate').forEach(function(el) {
+        el.classList.remove('will-animate');
+        el.classList.add('visible');
+      });
+    }, 800);
+  } catch(err) {
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    });
+  }
+</script>
+</body>
+</html>
